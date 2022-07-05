@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:14:00 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/05 17:17:41 by cmieuzet         ###   ########.fr       */
+/*   Created: 2022/04/07 16:35:49 by cmieuzet          #+#    #+#             */
+/*   Updated: 2022/04/18 15:18:44 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft.h"
-
-typedef struct s_element
+void	ft_putendl_fd(char *s, int fd)
 {
-	struct s_pile	*next;
-	struct s_pile	*prev;
-	int				data;
-}			t_element;
-
-typedef struct s_pile
-{
-	t_element	*top;
-}			t_pile;
-
-#endif
+	if (!s)
+		return ;
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
+}

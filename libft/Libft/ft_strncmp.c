@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:14:00 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/05 17:17:41 by cmieuzet         ###   ########.fr       */
+/*   Created: 2022/03/29 15:50:21 by cmieuzet          #+#    #+#             */
+/*   Updated: 2022/04/18 14:41:55 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft.h"
-
-typedef struct s_element
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	struct s_pile	*next;
-	struct s_pile	*prev;
-	int				data;
-}			t_element;
+	size_t	i;
 
-typedef struct s_pile
-{
-	t_element	*top;
-}			t_pile;
-
-#endif
+	i = 0;
+	if ((s1[i] == '\0' && s2[i] == '\0') || n == 0)
+		return (0);
+	while (i < n && s1[i] == s2[i] && s1[i] != '\0')
+	{
+		i++;
+		if (i == n)
+			return (0);
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}

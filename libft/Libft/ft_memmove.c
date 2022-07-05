@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:14:00 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/05 17:17:41 by cmieuzet         ###   ########.fr       */
+/*   Created: 2022/03/29 14:00:09 by cmieuzet          #+#    #+#             */
+/*   Updated: 2022/04/07 15:38:36 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft.h"
-
-typedef struct s_element
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	struct s_pile	*next;
-	struct s_pile	*prev;
-	int				data;
-}			t_element;
+	char	*tmpdest;
+	char	*tmpsrc;
 
-typedef struct s_pile
-{
-	t_element	*top;
-}			t_pile;
-
-#endif
+	tmpdest = (char *)dest;
+	tmpsrc = (char *)src;
+	if (tmpdest > tmpsrc)
+		while (n--)
+			tmpdest[n] = tmpsrc[n];
+	else
+		ft_memcpy(tmpdest, tmpsrc, n);
+	return (dest);
+}

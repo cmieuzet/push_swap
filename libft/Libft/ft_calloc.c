@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:14:00 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/05 17:17:41 by cmieuzet         ###   ########.fr       */
+/*   Created: 2022/04/06 16:21:24 by cmieuzet          #+#    #+#             */
+/*   Updated: 2022/04/18 15:10:25 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "libft.h"
-
-typedef struct s_element
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	struct s_pile	*next;
-	struct s_pile	*prev;
-	int				data;
-}			t_element;
+	void	*ptr;
 
-typedef struct s_pile
-{
-	t_element	*top;
-}			t_pile;
-
-#endif
+	if (nmemb > 2147483647 || size > 2147483647 || nmemb * size > 2147483647)
+		return (0);
+	if (!nmemb || !size)
+		return (malloc(0));
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
+}

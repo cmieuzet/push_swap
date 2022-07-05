@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:17:03 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/05 17:09:05 by cmieuzet         ###   ########.fr       */
+/*   Created: 2022/04/18 09:16:09 by cmieuzet          #+#    #+#             */
+/*   Updated: 2022/04/18 15:08:08 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "push_swap.h"
-
-int	main(int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	(void)argv;
-	if (argc == 2)
+	t_list	*new;
+	t_list	*tmpnew;
+
+	if (!lst || !f)
+		return (NULL);
+	new = ft_lstnew(f(lst->content));
+	tmpnew = new;
+	while (lst->next)
 	{
-		write(1, "OK", 1);
+		lst = lst->next;
+		ft_lstadd_back(&tmpnew, ft_lstnew(f(lst->content)));
+		if (!new)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		tmpnew = tmpnew->next;
 	}
-	write(1, "\n", 1);
+	return (new);
 }

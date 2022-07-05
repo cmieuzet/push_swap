@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/28 19:14:00 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/05 17:17:41 by cmieuzet         ###   ########.fr       */
+/*   Created: 2022/04/18 17:16:35 by cmieuzet          #+#    #+#             */
+/*   Updated: 2022/07/05 14:58:03 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "libft.h"
+# include <stdarg.h>
 
-typedef struct s_element
-{
-	struct s_pile	*next;
-	struct s_pile	*prev;
-	int				data;
-}			t_element;
-
-typedef struct s_pile
-{
-	t_element	*top;
-}			t_pile;
+int	ft_printf(const char *str, ...);
+int	ft_whatis(va_list ap, char format);
 
 #endif
