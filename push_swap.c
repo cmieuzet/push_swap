@@ -14,10 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	(void)argv;
-	if (argc == 2)
+	t_pile	*pile_a;
+
+	if (!ft_create_pile(argc, argv))
 	{
-		write(1, "OK", 2);
+		ft_putstr_fd("Error\n", 1);
+		return (0);
 	}
-	write(1, "\n", 1);
 }

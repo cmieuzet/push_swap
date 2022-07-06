@@ -18,7 +18,6 @@
 typedef struct s_element
 {
 	struct s_pile	*next;
-	struct s_pile	*prev;
 	int				data;
 }			t_element;
 

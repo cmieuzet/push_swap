@@ -12,53 +12,22 @@
 
 #include "push_swap.h"
 
-int	ft_error_one(char *str)
+t_pile	*ft_create_pile(int argc, char **argv)
 {
-	char **tab;
+	t_pile	pile_a;
 	int	i;
 
-	*tab = ft_split(str, ' ');
-	i = -1;
-	while (tab[++i])
-		ft_checkstr(tab[i]);
-	i = -1;
-	while (tab[++i])
+	i = 1;
+	if (argc < 2)
+		return (NULL);
+	if (argc == 2)
+		pile_a = ft_error_one(argv);
+	else
 	{
-		ft_atoi_boost(tab[i]);
-		t_pile = 
-
-	}
-}
-
-
-
-
-	if (str[0] == '-' && !ft_checkstr(str[1]))
-		ft_return_error();
-	while ()
-	{
-		if (!ft_checkstr(str[i]))
-			ft_return_error();
-		if (!ft_checkneg(str[i]))
-			ft_return_error();
-		if 
-	}
-}
-
-{
-	char **tab;
-	int	i;
-
-	i = 0;
-	*tab = ft_split(str, ' ');
-	while (tab[i])
-	{
-		if (ft_atoi_boost(tab[i]))
+		while (i <= argc)
 		{
-			ft_putstr_fd("Error\n", 1);
-			free (tab);
-			exit (1);
+			pile_a = ft_error_many(argv[i], &pile_a);
+			i++;
 		}
 	}
-	free (tab);
 }
