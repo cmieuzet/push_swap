@@ -6,7 +6,7 @@
 /*   By: cmieuzet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 19:17:03 by cmieuzet          #+#    #+#             */
-/*   Updated: 2022/07/07 11:36:30 by cmieuzet         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:43:31 by cmieuzet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,14 @@
 int	main(int argc, char **argv)
 {
 	t_pile	pile_a;
+	t_pile	pile_b;
 
 	pile_a = NULL;
-
-	if (!ft_create_pile(argc, argv, &pile_a))
-	{
-		ft_putstr_fd("Error\n", 1);
-		return (0);
-	}
-	ft_program -- fait le tri
-
+	pile_b = NULL;
+	if (argc < 2)
+		return (1);
+	if (argc == 2)
+		ft_parsing_one(argv[1], &pile_a);
+	else (argc > 2)
+		ft_parsing_multiple(argc, argv, &pile_a);
 }
-
-t_element	*element;
-
-
-
